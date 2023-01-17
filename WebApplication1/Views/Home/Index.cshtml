@@ -1,0 +1,104 @@
+﻿@model IEnumerable<WebApplication1.Models.Information>
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<style>
+
+    .h2, h2{
+        text-align: left;
+        margin-bottom: 2rem;
+    }
+
+    p{
+        margin: 0rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .header__section__elements,
+    .header__section__elements {
+        display: flex;
+        align-content: center;
+    }
+
+    .header__section__elements h5{
+        text-align: left;
+    }
+
+    .header__section__elements__rigth {
+        text-align: left;
+        margin-left: 5rem;
+    }
+
+    .body__section__elements{
+        display: flex;
+        align-content: center;
+    }
+
+    .body__section__elements h5 {
+        text-align: left;
+    }
+    .body__section__elements__rigth {
+        text-align: left;
+        margin-left: 3rem;
+    }
+
+    .btn__generate__excel{
+        margin-top: 3rem;
+        width: 15rem;
+        height: 3rem;
+    }
+
+    
+
+</style>
+
+<div class="text-center">
+    <h1 class="display-4">Generador de excel</h1>
+    <div>
+        <div class="header__section mb-4">
+            <h2>Elementos</h2>
+            <div class="header__section__elements">
+                <div class="header__section__elements__left">
+                    <h5>Nombre:</h5>
+                    <h5>Email:</h5>
+                    <h5>Telefono:</h5>
+                </div>
+                <div class="header__section__elements__rigth">
+                    @foreach(var data in Model)
+                    {
+                        <p>@Html.DisplayFor(m => data.Name)</p>
+                        <p>@Html.DisplayFor(m => data.Email)</p>
+                        <p>@Html.DisplayFor(m => data.Phone)</p>
+                    }
+                    
+                </div>
+            </div>
+        </div>
+        <div class="body__section mb-4">
+            <h2>Descripcion</h2>
+            <div class="body__section__elements">
+                <div class="body__section__elements__left">
+                    <h5>Estado:</h5>
+                    <h5>Seguradora:</h5>
+                    <h5>Detalle:</h5>
+                </div>
+                <div class="body__section__elements__rigth">
+                    @foreach(var data in Model)
+                    {
+                        <p>@Html.DisplayFor(m => data.Status)</p>
+                        <p>@Html.DisplayFor(m => data.Insurance)</p>
+                        <p>@Html.DisplayFor(m => data.Detail)</p>
+                    }
+                    
+                </div>
+            </div>
+            
+        </div>
+        
+    </div> 
+    <button onclick="generateExcel()" id="btn_generate" class="btn__generate__excel btn btn-success">Generar Excele</button>
+</div>
+
+<script src="~/js/Home.js"></script>
+
